@@ -1,21 +1,21 @@
-
+/**
+ * Created by Matthew Ognibene 6/24/17
+ * Alpha 1.1
+ *
+ */
 public class Game {
-
-    public Game(){
-
-    }
 
     private int board[][] = new int[3][3];
 
-    public boolean isOpen(int[] rc){
-        return(board[rc[0]][rc[1]]==0);
+    public boolean isOpen(int[] coordinates){
+        return(board[coordinates[0]][coordinates[1]]==0);
     }
 
-    public void setBoard(int[] rc, int player){
-        if(isOpen(rc)){
-            board[rc[0]][rc[1]] = player;
-        }
+    public void setBoard(int[] coordinates, int player) {
+        if (isOpen(coordinates))
+            board[coordinates[0]][coordinates[1]] = player;
     }
+
 
     public int checkWinner(){
         for(int r=0;r<3;r++) {
@@ -57,6 +57,9 @@ public class Game {
         return 0;
     }
 
+
+    //HERE BE LEGACY CODE (AND DRAGONS)
+
     public void printBoard(){
 
         for(int r=0;r<3;r++){
@@ -72,8 +75,6 @@ public class Game {
         }
 
     }
-
-    //HERE BE LEGACY CODE (AND DRAGONS)
 
     private int[] rowCol(int location){
         //Returns the location in row,col form instead of 1,2,3,4...
@@ -109,5 +110,7 @@ public class Game {
             board[rc[0]][rc[1]] = player;
         }
     }
+
+
 
 }
